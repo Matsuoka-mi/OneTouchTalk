@@ -1244,6 +1244,8 @@ class tukuru1ViewController: UIViewController {
         print("紫を押したときのtukuru1のタグNumber1は\(tagNumber1)")
         print("紫を押したときのtukuru1のタグNumber2は\(tagNumber2)")
         print("紫を押したときのtukuru1のタグNumber3は\(tagNumber3)")
+        
+        print("紫を押したときの tukuru1のiroNumber3\(iroNumber3)")
     }
     
     
@@ -1261,7 +1263,7 @@ class tukuru1ViewController: UIViewController {
         
         print("戻るを押したときのtukuru1のタグNumber1は\(userDefaults.integer(forKey: "tagNumber1"))")
         print("戻るを押したときのtukuru1のタグNumber2は\(userDefaults.integer(forKey: "tagNumber2"))")
-        print("戻るを押したときのtukuru1のタグNumber2は\(userDefaults.integer(forKey: "tagNumber3"))")
+        print("戻るを押したときのtukuru1のタグNumber3は\(userDefaults.integer(forKey: "tagNumber3"))")
         
     
         // checkButtonArrayにtrue だった　tagNumber を入れる
@@ -1285,13 +1287,18 @@ class tukuru1ViewController: UIViewController {
             checkButtonArray += [0]
         }
         
+        
+        
         if userDefaults.integer(forKey: "tagNumber3") == 3{
             checkButtonArray += [userDefaults.integer(forKey: "tagNumber3")]
         }
 
+        
         else {
             checkButtonArray += [0]
         }
+        
+        
         
         if userDefaults.integer(forKey: "tagNumber4") == 4{
             checkButtonArray += [userDefaults.integer(forKey: "tagNumber4")]
@@ -1300,6 +1307,8 @@ class tukuru1ViewController: UIViewController {
         else {
             checkButtonArray += [0]
         }
+        
+        
         
         if userDefaults.integer(forKey: "tagNumber5") == 5{
             checkButtonArray += [userDefaults.integer(forKey: "tagNumber5")]
@@ -1377,8 +1386,11 @@ class tukuru1ViewController: UIViewController {
         //画面遷移////////////////////////////
         
        
-        print("戻るを押したときのtukuru1のiroNumber\(iroNumber1)")
-        
+        print("戻るを押したときのtukuru1のiroNumber1\(iroNumber1)")
+        print("戻るを押したときのtukuru1のiroNumber2\(iroNumber2)")
+        print("戻るを押したときのtukuru1のiroNumber3\(iroNumber3)")
+        print("戻るを押したときのtukuru1のiroNumber4\(iroNumber4)")
+        print("戻るを押したときのtukuru1のiroNumber5\(iroNumber5)")
     }
     
     
@@ -1418,7 +1430,10 @@ class tukuru1ViewController: UIViewController {
         self.gazo1 = 0
         //iroNumberが0
 //        userDefaults.set(iroNumber , forKey: "iro1")                //iro1というキー
-        print("tukuru1のiroNumber\(iroNumber1)")
+        print("viewWillAppear tukuru1のiroNumber1\(iroNumber1)")
+        print("viewWillAppear tukuru1のiroNumber2\(iroNumber2)")
+        print("viewWillAppear tukuru1のiroNumber3\(iroNumber3)")
+        print("viewWillAppear tukuru1のiroNumber4\(iroNumber4)")
         
         //青にする(色)
         self.imageViewtukuru1.layer.borderColor = UIColor.blue.cgColor

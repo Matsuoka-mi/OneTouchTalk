@@ -402,6 +402,7 @@ class View1: UIViewController, UIGestureRecognizerDelegate {
     
     //もどる方法がピンチかタップか決める
     
+   
     
     @IBAction func modoruButton1(_ sender: Any) {
         print("modorutap\(modorutap)")
@@ -413,8 +414,9 @@ class View1: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+    
     @IBAction func modoruButton2(_ sender: Any) {
-        
+    
         if modoruButton1 == true{
             modoruButton2 = true
             print("2が押された後のmodoruButton1\(modoruButton1)")

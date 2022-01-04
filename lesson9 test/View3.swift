@@ -33,7 +33,9 @@ class View3: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var image3View: UIImageView!
     
+    
     @IBAction func modoruButton1(_ sender: Any) {
+    
         if modorutap == true {
             modoruButton1 = true
             print("1が押された後のmodoruButton1\(modoruButton1)")
@@ -42,6 +44,7 @@ class View3: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func modoruButton2(_ sender: Any) {
+    
         if modoruButton1 == true{
             modoruButton2 = true
             print(modoruButton1)

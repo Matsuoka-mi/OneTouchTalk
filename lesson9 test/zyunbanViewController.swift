@@ -143,6 +143,19 @@ class zyunbanViewController: UIViewController {
     }
     
     
+    @IBAction func rokuon(_ sender: UIButton) {
+        // ①storyboardのインスタンス取得
+        let storyboard: UIStoryboard = self.storyboard!
+        
+        // ②遷移先ViewControllerのインスタンス取得
+        let rokuon = storyboard.instantiateViewController(withIdentifier: "rokuonViewController") as! rokuonViewController
+     
+        // ③画面遷移
+        let vc = rokuon
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+        
+    }
     
     
     @IBAction func zyunmodoru(_ sender: UIButton) {

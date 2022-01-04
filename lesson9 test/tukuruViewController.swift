@@ -151,7 +151,7 @@ class tukuruViewController: UIViewController {
             //「画像がありません」以外ならボタンをマイナスにする
             self.plusminus1.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
         }
-        print("プラスを押す前のtukuruのiroNumberは\(iroNumber1)")
+        print("プラスを押す前のtukuruのiroNumber1は\(iroNumber1)")
         
         
         
@@ -169,7 +169,7 @@ class tukuruViewController: UIViewController {
             //「画像がありません」以外ならボタンをマイナスにする
             self.plusminus2.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
         }
-        print("プラスを押す前のtukuruのiroNumberは\(iroNumber2)")
+        print("プラスを押す前のtukuruのiroNumber2は\(iroNumber2)")
         
         
         //アプリを再起動してもiro3の色を表示する
@@ -179,14 +179,14 @@ class tukuruViewController: UIViewController {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         if iroNumber3 == 0{
-            //もし、iroNumber2が0(「画像はありません」)ならボタンをプラスにする
+            //もし、iroNumber3が0(「画像はありません」)ならボタンをプラスにする
             self.plusminus3.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal);
         }
         else{
             //「画像がありません」以外ならボタンをマイナスにする
             self.plusminus3.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
         }
-        print("プラスを押す前のtukuruのiroNumberは\(iroNumber3)")
+        print("プラスを押す前のtukuruのiroNumber3は\(iroNumber3)")
         
         
         //アプリを再起動してもiro4の色を表示する
@@ -203,7 +203,7 @@ class tukuruViewController: UIViewController {
             //「画像がありません」以外ならボタンをマイナスにする
             self.plusminus4.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
         }
-        print("プラスを押す前のtukuruのiroNumberは\(iroNumber4)")
+        print("プラスを押す前のtukuruのiroNumber4は\(iroNumber4)")
         
         
         //アプリを再起動してもiro5の色を表示する
@@ -220,7 +220,7 @@ class tukuruViewController: UIViewController {
             //「画像がありません」以外ならボタンをマイナスにする
             self.plusminus5.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
         }
-        print("プラスを押す前のtukuruのiroNumberは\(iroNumber5)")
+        print("プラスを押す前のtukuruのiroNumber5は\(iroNumber5)")
         
         
         //アプリを再起動してもiro6の色を表示する
@@ -237,7 +237,7 @@ class tukuruViewController: UIViewController {
             //「画像がありません」以外ならボタンをマイナスにする
             self.plusminus6.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
         }
-        print("プラスを押す前のtukuruのiroNumberは\(iroNumber6)")
+        print("プラスを押す前のtukuruのiroNumber6は\(iroNumber6)")
         
         
         //アプリを再起動してもiro7の色を表示する
@@ -254,7 +254,7 @@ class tukuruViewController: UIViewController {
             //「画像がありません」以外ならボタンをマイナスにする
             self.plusminus7.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
         }
-        print("プラスを押す前のtukuruのiroNumberは\(iroNumber7)")
+        print("プラスを押す前のtukuruのiroNumber7は\(iroNumber7)")
         
         //アプリを再起動してもiro8の色を表示する
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -270,7 +270,7 @@ class tukuruViewController: UIViewController {
             //「画像がありません」以外ならボタンをマイナスにする
             self.plusminus8.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
         }
-        print("プラスを押す前のtukuruのiroNumberは\(iroNumber8)")
+        print("プラスを押す前のtukuruのiroNumber8は\(iroNumber8)")
         
         
         //アプリを再起動してもiro9の色を表示する
@@ -287,7 +287,7 @@ class tukuruViewController: UIViewController {
             //「画像がありません」以外ならボタンをマイナスにする
             self.plusminus9.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
         }
-        print("プラスを押す前のtukuruのiroNumberは\(iroNumber9)")
+        print("プラスを押す前のtukuruのiroNumber9は\(iroNumber9)")
         
         
         
@@ -687,7 +687,7 @@ class tukuruViewController: UIViewController {
                 
                 //iroNumber が０（画像がない表示）なら、ボタンはプラスからマイナスに変更
                 self.plusminus4.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal);
-                userDefaults.set(iroNumber4 , forKey: "iro3")
+                userDefaults.set(iroNumber4 , forKey: "iro4")
                 
                 //       self.kido1.setImage(UIImage(systemName: "lightbulb.slash"), for: .normal);
                 //        self.kido1.setImage(UIImage(systemName: "lightbulb.fill"), for: .selected)

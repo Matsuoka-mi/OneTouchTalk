@@ -148,7 +148,7 @@ class zyunbanViewController: UIViewController {
         let storyboard: UIStoryboard = self.storyboard!
         
         // ②遷移先ViewControllerのインスタンス取得
-        let rokuon = storyboard.instantiateViewController(withIdentifier: "rokuonViewController") as! rokuonViewController
+        let rokuon = storyboard.instantiateViewController(withIdentifier: "onsei") as! onsei
      
         // ③画面遷移
         let vc = rokuon

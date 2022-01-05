@@ -20,6 +20,8 @@
 		BD379002275778370044EDB5 /* View3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD379001275778370044EDB5 /* View3.swift */; };
 		BD532336276EFA7100067FB9 /* View10.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD532335276EFA7100067FB9 /* View10.swift */; };
 		BD6BE65227550CE7003FAA13 /* plusminus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6BE65127550CE7003FAA13 /* plusminus.swift */; };
+		BD7356622785454F0045709F /* onsei.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7356612785454F0045709F /* onsei.swift */; };
+		BD73566427856D420045709F /* camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD73566327856D420045709F /* camera.swift */; };
 		BD7EA38D275396A2009442F0 /* kido.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7EA38C275396A2009442F0 /* kido.swift */; };
 		BDB6A18B274C975A00E8EFC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6A18A274C975A00E8EFC3 /* AppDelegate.swift */; };
 		BDB6A18D274C975A00E8EFC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6A18C274C975A00E8EFC3 /* SceneDelegate.swift */; };
@@ -33,7 +35,6 @@
 		BDB6A1A9274CD80600E8EFC3 /* greenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6A1A8274CD80600E8EFC3 /* greenViewController.swift */; };
 		BDB6A1CB274CEB4E00E8EFC3 /* zyunbanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6A1CA274CEB4E00E8EFC3 /* zyunbanViewController.swift */; };
 		BDB6A1CD274CED2C00E8EFC3 /* tukuruViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6A1CC274CED2C00E8EFC3 /* tukuruViewController.swift */; };
-		BDC08BCB2784A34600C68626 /* rokuonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC08BCA2784A34600C68626 /* rokuonViewController.swift */; };
 		BDF89741274E795C00A05409 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF89740274E795C00A05409 /* CheckBox.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,8 @@
 		BD379001275778370044EDB5 /* View3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View3.swift; sourceTree = "<group>"; };
 		BD532335276EFA7100067FB9 /* View10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View10.swift; sourceTree = "<group>"; };
 		BD6BE65127550CE7003FAA13 /* plusminus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plusminus.swift; sourceTree = "<group>"; };
+		BD7356612785454F0045709F /* onsei.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onsei.swift; sourceTree = "<group>"; };
+		BD73566327856D420045709F /* camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = camera.swift; sourceTree = "<group>"; };
 		BD7EA38C275396A2009442F0 /* kido.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kido.swift; sourceTree = "<group>"; };
 		BDB6A187274C975A00E8EFC3 /* lesson9 test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lesson9 test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB6A18A274C975A00E8EFC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,7 +69,6 @@
 		BDB6A1A8274CD80600E8EFC3 /* greenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = greenViewController.swift; sourceTree = "<group>"; };
 		BDB6A1CA274CEB4E00E8EFC3 /* zyunbanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zyunbanViewController.swift; sourceTree = "<group>"; };
 		BDB6A1CC274CED2C00E8EFC3 /* tukuruViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tukuruViewController.swift; sourceTree = "<group>"; };
-		BDC08BCA2784A34600C68626 /* rokuonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rokuonViewController.swift; sourceTree = "<group>"; };
 		BDF89740274E795C00A05409 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,7 +126,8 @@
 				BDB6A1CA274CEB4E00E8EFC3 /* zyunbanViewController.swift */,
 				BDB6A1CC274CED2C00E8EFC3 /* tukuruViewController.swift */,
 				BD08B3ED274FA6F80054756F /* tukuru1ViewController.swift */,
-				BDC08BCA2784A34600C68626 /* rokuonViewController.swift */,
+				BD7356612785454F0045709F /* onsei.swift */,
+				BD73566327856D420045709F /* camera.swift */,
 				BDB6A190274C975A00E8EFC3 /* Main.storyboard */,
 				BDB6A193274C975A00E8EFC3 /* Assets.xcassets */,
 				BDB6A195274C975A00E8EFC3 /* LaunchScreen.storyboard */,
@@ -206,7 +209,6 @@
 				BD23D34127659A350044E663 /* View5.swift in Sources */,
 				BD23D34527659A4A0044E663 /* View7.swift in Sources */,
 				BDB6A1A3274CA35D00E8EFC3 /* redViewController.swift in Sources */,
-				BDC08BCB2784A34600C68626 /* rokuonViewController.swift in Sources */,
 				BDB6A1A5274CAB3D00E8EFC3 /* blueViewController.swift in Sources */,
 				BDB6A18F274C975A00E8EFC3 /* ViewController.swift in Sources */,
 				BDB6A1A7274CC71400E8EFC3 /* FirstViewController.swift in Sources */,
@@ -214,10 +216,12 @@
 				BD23D34727659A530044E663 /* View8.swift in Sources */,
 				BD08B3EE274FA6F80054756F /* tukuru1ViewController.swift in Sources */,
 				BDF89741274E795C00A05409 /* CheckBox.swift in Sources */,
+				BD73566427856D420045709F /* camera.swift in Sources */,
 				BD334594275B78B700C69F59 /* LastViewController.swift in Sources */,
 				BD378FFD275774090044EDB5 /* View1.swift in Sources */,
 				BDB6A1CB274CEB4E00E8EFC3 /* zyunbanViewController.swift in Sources */,
 				BDB6A18B274C975A00E8EFC3 /* AppDelegate.swift in Sources */,
+				BD7356622785454F0045709F /* onsei.swift in Sources */,
 				BD23D34927659A5C0044E663 /* View9.swift in Sources */,
 				BD7EA38D275396A2009442F0 /* kido.swift in Sources */,
 				BD378FFF275777560044EDB5 /* View2.swift in Sources */,

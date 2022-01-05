@@ -32,6 +32,7 @@ class tukuru1ViewController: UIViewController {
     @IBOutlet weak var pinkButton: UIButton!
     @IBOutlet weak var orangeButton: UIButton!
     @IBOutlet weak var purpleButton: UIButton!
+    @IBOutlet weak var camera: UIButton!
     
     
     let blackB = UIImage(named: "blackButton")
@@ -1392,6 +1393,19 @@ class tukuru1ViewController: UIViewController {
         print("戻るを押したときのtukuru1のiroNumber4\(iroNumber4)")
         print("戻るを押したときのtukuru1のiroNumber5\(iroNumber5)")
     }
+    
+    
+    @IBAction func cameraTap(_ sender: Any) {
+        
+        let cameraview = self.storyboard?.instantiateViewController(withIdentifier: "camera") as! camera
+        
+        //フルスクリーン
+        let vc = cameraview
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
     
     
     

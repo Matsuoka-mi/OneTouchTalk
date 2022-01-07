@@ -9,6 +9,9 @@ import UIKit
 
 class tukuruViewController: UIViewController {
     
+    //////////////////画面遷移時に画像を渡すQiita
+    var image: UIImage?
+    //////////////////画面遷移時に画像を渡すQiitaここまで
     
     @IBOutlet weak var tukuimageView1: UIImageView!
     @IBOutlet weak var tukuimageView2: UIImageView!
@@ -61,8 +64,11 @@ class tukuruViewController: UIViewController {
     
     
     var checkButtonArray = [Int]()
+    var satsueiArray = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var number:Int = 0
     
   
+    
     
     //forkey
     let userDefaults:UserDefaults = UserDefaults.standard
@@ -137,6 +143,10 @@ class tukuruViewController: UIViewController {
     //forkey
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+      
+        
+        
         //アプリを再起動してもiro1の色を表示する
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         iroNumber1 = userDefaults.integer(forKey: "iro1")
@@ -533,7 +543,110 @@ class tukuruViewController: UIViewController {
         
     }
     
-    
+    //なぜかDidWillDisappearでは表示されないので。
+    override func viewDidAppear(_ animated: Bool) {
+        
+        let userDefaultsSatsueiArray = userDefaults.array(forKey: "satsueiArray")
+        print("tukuru画面の時の撮影配列\(userDefaultsSatsueiArray)")
+        
+        //この中に１があるかどうかチェックし、あった場合はそれが何番目かを取り出せばどの番号の枠に画像を遷移したら良いか分かる
+        
+        //インストール後すぐに「つくる」を押した時、いきなり５６８行目だと[Int]でエラーになるので↓この行を入れるとsatsueiAにnilが入ってエラーにならない。
+        let satsueiA = UserDefaults.standard.object(forKey: "satsueiArray")
+        
+        // チェックボックスの配列がnilではないときの処理
+        if satsueiA != nil {
+        
+        // as! [Int]がないとfirstIndex の行でエラーになる
+        let satsueiA = UserDefaults.standard.array(forKey: "satsueiArray") as! [Int]
+        
+       
+        print("tukuruViewが受け取った配列\(satsueiA)")
+        
+       //satsueiA配列の中に１があったら、それが何番目かをnumberの中に入れて表示
+        if let numberA = satsueiA.firstIndex(where: {$0 == 1}) {
+            print(numberA) //2
+            number = numberA
+            print("numberは\(number)")
+        }
+        }
+        
+        
+        
+        //写真を撮ってない(image == nil)の時は「画像を作ってね」を表示しsyashin = 0にする
+        
+        if image == nil{
+            syashin = 0
+            tukuimageView1.image = UIImage(named: "purasudegazoutukutte")
+            print("写真なし")
+            
+        }
+        else {
+            //写真を撮った時はsyashin = 1にして、
+            syashin = 1
+            print("写真撮った")
+        }
+        
+        //////////////////画面遷移時に画像を渡すQiita
+        //遷移元から取得したimage(画像データ)をimageViewのimageに渡す
+        //number の数字：何番目の＋ボタンを押したか（押したら配列の要素１）それが配列の何番目か。
+        
+            switch number{
+            case 0 :
+                //配列の要素１番目は「０」
+                print("写真ありの時の１枠")
+                tukuimageView1.image = image
+                print("写真ありの時の１枠終わり")
+               
+            
+            case 1 :
+                print("写真ありの時の１枠")
+                tukuimageView2.image = image
+                print("写真ありの時の１枠終わり")
+                
+                
+            case 2 :
+                print("写真ありの時の１枠")
+                tukuimageView3.image = image
+                print("写真ありの時の１枠終わり")
+                
+            case 3 :
+                print("写真ありの時の１枠")
+                tukuimageView4.image = image
+                print("写真ありの時の１枠終わり")
+               
+            
+            case 4 :
+                print("写真ありの時の１枠")
+                tukuimageView5.image = image
+                print("写真ありの時の１枠終わり")
+                
+                
+            case 5 :
+                print("写真ありの時の１枠")
+                tukuimageView6.image = image
+                print("写真ありの時の１枠終わり")
+                
+            case 6 :
+                print("写真ありの時の１枠")
+                tukuimageView7.image = image
+                print("写真ありの時の１枠終わり")
+               
+            
+            case 7 :
+                print("写真ありの時の１枠")
+                tukuimageView8.image = image
+                print("写真ありの時の１枠終わり")
+                
+                
+           
+            default:
+                tukuimageView9.image = image
+                //////////////////画面遷移時に画像を渡すQiitaここまで
+                
+        }
+        
+    }
     
     @IBAction func plusminusTap(_ sender: UIButton) {
         
@@ -545,6 +658,8 @@ class tukuruViewController: UIViewController {
             
             //iroNumber が０（画像がない表示）なら、ボタンはプラスからマイナスに変更
             self.plusminus1.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal);
+            
+            //「iroNumber1（１番の画像枠）の値」を”iro1"の名前で保存　黒なら iro1 = 1
             userDefaults.set(iroNumber1 , forKey: "iro1")
             
             
@@ -557,6 +672,7 @@ class tukuruViewController: UIViewController {
             let nextView = storyboard.instantiateViewController(withIdentifier: "tukuru1ViewController") as! tukuru1ViewController
                    
             //tagの値をtukuru1ViewControllerに渡す
+            //tukuru1ViewControllerのplusminustag という名前の変数に、sender.tag(1を押したら1）の値を入れたもの
             print("タグ\(sender.tag)")
             nextView.plusminustag = sender.tag
            

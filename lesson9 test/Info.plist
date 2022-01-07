@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>ライブラリにアクセスします</string>
+	<string>ライブラリにアクセスするには許可が必要です</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>ライブラリに追加します</string>
+	<string>ライブラリに追加するには許可が必要です</string>
 	<key>NSCameraUsageDescription</key>
-	<string>カメラを使います</string>
+	<string>カメラを使うには許可が必要です</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<string>ja_JP</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -66,8 +66,8 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>マイクを使います</string>
+	<string>マイクを使うには許可が必要です</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>録音します</string>
+	<string>録音するには許可が必要です</string>
 </dict>
 </plist>

@@ -6,8 +6,12 @@
 //
 
 import UIKit
+/////////////player
+import AVFoundation
+//////////////player 
 
-class View4: UIViewController, UIGestureRecognizerDelegate {
+
+class View4: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegate {
     
   
     
@@ -197,8 +201,38 @@ class View4: UIViewController, UIGestureRecognizerDelegate {
     
     }
     
+    
+    //////////////player
+    //レコーダーアプリの作り方から
+   
+    private func getURL4() -> URL{
+    //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let url = docsDirect.appendingPathComponent("sample4.m4a")
+        return url
+        
+        
+    }
+    
+    var audioPlayer: AVAudioPlayer!
+    //レコーダーアプリの作り方から
+    //////////////player
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //recorder app
+        
+        audioPlayer = try! AVAudioPlayer(contentsOf: getURL4())
+        audioPlayer.delegate = self
+        audioPlayer.play()
+        
+        //recorder app
+        
         
         print("view4gazo\(view4gazo)")
         print("view5gazo\(view5gazo)")

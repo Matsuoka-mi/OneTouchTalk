@@ -6,8 +6,11 @@
 //
 
 import UIKit
+/////////////player
+import AVFoundation
+//////////////player 
 
-class View9: UIViewController, UIGestureRecognizerDelegate {
+class View9: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegate {
     
     @IBOutlet weak var image9View: UIImageView!
     
@@ -94,11 +97,35 @@ class View9: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+    //////////////player
+    //レコーダーアプリの作り方から
+   
+    private func getURL9() -> URL{
+    //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let url = docsDirect.appendingPathComponent("sample9.m4a")
+        return url
+        
+        
+    }
     
+    var audioPlayer: AVAudioPlayer!
+    //レコーダーアプリの作り方から
+    //////////////player
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //recorder app
+        
+        audioPlayer = try! AVAudioPlayer(contentsOf: getURL9())
+        audioPlayer.delegate = self
+        audioPlayer.play()
+        
+        //recorder app
         
         if UserDefaults.standard.integer(forKey: "LED9") == 1{
           //輝度//////////////////////////////////////////////輝度////////////////

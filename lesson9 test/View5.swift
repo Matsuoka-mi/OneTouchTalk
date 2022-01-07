@@ -6,8 +6,11 @@
 //
 
 import UIKit
+/////////////player
+import AVFoundation
+//////////////player 
 
-class View5: UIViewController, UIGestureRecognizerDelegate {
+class View5: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegate {
     
     
     @IBOutlet weak var image5View: UIImageView!
@@ -165,8 +168,38 @@ class View5: UIViewController, UIGestureRecognizerDelegate {
     
     }
     
+    //////////////player
+    //レコーダーアプリの作り方から
+   
+    private func getURL5() -> URL{
+    //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let url = docsDirect.appendingPathComponent("sample5.m4a")
+        return url
+        
+        
+    }
+    
+    var audioPlayer: AVAudioPlayer!
+    //レコーダーアプリの作り方から
+    //////////////player
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //recorder app
+        
+        audioPlayer = try! AVAudioPlayer(contentsOf: getURL5())
+        audioPlayer.delegate = self
+        audioPlayer.play()
+        
+        //recorder app
         
         
         if UserDefaults.standard.integer(forKey: "LED5") == 1

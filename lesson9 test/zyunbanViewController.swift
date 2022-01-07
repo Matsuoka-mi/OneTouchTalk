@@ -39,6 +39,8 @@ class zyunbanViewController: UIViewController {
     
     var checkButtonArray = [Int]()
 
+    var rokuonNumber:Int = 0
+    
     var tagNumber1:Int = 0
     var tagNumber2:Int = 0
     var tagNumber3:Int = 0
@@ -144,6 +146,60 @@ class zyunbanViewController: UIViewController {
     
     
     @IBAction func rokuon(_ sender: UIButton) {
+        
+        
+        
+        switch sender.tag {
+        case 1:
+            print("1")
+            rokuonNumber = 1
+
+            
+        
+        case 2:
+           
+        print("2")
+            rokuonNumber = 2
+            
+        case 3:
+           
+        print("3")
+            rokuonNumber = 3
+            
+        case 4:
+           
+        print("4")
+            rokuonNumber = 4
+            
+        case 5:
+           
+        print("5")
+            rokuonNumber = 5
+            
+        case 6:
+           
+        print("6")
+            rokuonNumber = 6
+            
+        case 7:
+           
+        print("7")
+            rokuonNumber = 7
+            
+        case 8:
+           
+        print("8")
+            rokuonNumber = 8
+            
+       
+        default:
+           
+            print("9")
+            rokuonNumber = 9
+                
+            }
+        
+        userDefaults.set(rokuonNumber , forKey: "rokuonNumber")
         // ①storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!
         
@@ -155,7 +211,18 @@ class zyunbanViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
         
-    }
+        print("rokuonNumberは\(rokuonNumber)")
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
     
     
     @IBAction func zyunmodoru(_ sender: UIButton) {

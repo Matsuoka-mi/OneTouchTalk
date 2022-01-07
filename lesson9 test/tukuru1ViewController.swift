@@ -7,7 +7,8 @@
 
 import UIKit
 
-//forkey
+
+
 var iroNumber1: Int = 0
 var iroNumber2: Int = 0
 var iroNumber3: Int = 0
@@ -18,10 +19,23 @@ var iroNumber7: Int = 0
 var iroNumber8: Int = 0
 var iroNumber9: Int = 0
 
+//写真があるかないか　１なら撮影した、０なら撮影してない
+var syashin:Int = 0
+
+
+
+
 
 
 
 class tukuru1ViewController: UIViewController {
+    
+   
+    
+    //////////////////画面遷移時に画像を渡すQiita
+    var image: UIImage?
+    //////////////////画面遷移時に画像を渡すQiitaここまで
+    
     
     @IBOutlet weak var blackButton: UIButton!
     @IBOutlet weak var whiteButton: UIButton!
@@ -72,7 +86,9 @@ class tukuru1ViewController: UIViewController {
     var plusminustag:Int = 0
     
     let syoukyo = 1
-   
+    
+    //写真撮影から戻ってきたら１にする　1680行参照
+    var modottekita: Int = 0
     
     //forkey
     let userDefaults:UserDefaults = UserDefaults.standard
@@ -105,12 +121,23 @@ class tukuru1ViewController: UIViewController {
         switch plusminustag {
         //1番の画像のプラスマイナスボタンが押されて遷移してきた時
         case 1:
+            //gazo1 は黒が押されたら１が入る。
             iroNumber1 = self.gazo1
+            
+            //ここで押したボタンによってiroNumber1に入る値が変わり、iro1　という名前で保存される
             userDefaults.set(iroNumber1 , forKey: "iro1")
+            
+            //tagNumber1 に押されたプラスマイナスボタンのタグによって入る値が変わる。押されたボタンと押されていないボタンが１か０で管理できる。1287行目参照
+            
             self.tagNumber1 = 1
+            
+            //tagNumber1 は　tagNumber1 という名前で保存される
             userDefaults.set(self.tagNumber1 , forKey: "tagNumber1")
     
             userDefaults.set(syoukyo , forKey: "tagBool1")
+            
+            
+           
             print("画像を消したときのtagBool1はtukuruで\(userDefaults.bool(forKey: "tagBool1"))")
             
         //２番の画像のプラスマイナスボタンが押されて遷移してきた時
@@ -1271,6 +1298,8 @@ class tukuru1ViewController: UIViewController {
         
    //     checkButtonArray = [Int]()
         
+        //tagNumber1 が　１だった場合は１の画像のプラスマイナスボタンが押されて、かつ色ボタンも押されたという事がわかる。１の時のみ１を配列に入れ、０の時は０を入れる。
+        
         if userDefaults.integer(forKey: "tagNumber1") == 1{
             checkButtonArray += [userDefaults.integer(forKey: "tagNumber1")]
         }
@@ -1279,7 +1308,8 @@ class tukuru1ViewController: UIViewController {
             checkButtonArray += [0]
         }
       
-        
+      
+        //例えば１のプラスマイナスは押されておらず、２だけ押された時の配列は[0,1]となっている。
        if userDefaults.integer(forKey: "tagNumber2") == 2{
             checkButtonArray += [userDefaults.integer(forKey: "tagNumber2")]
         }
@@ -1364,17 +1394,35 @@ class tukuru1ViewController: UIViewController {
         
         
        userDefaults.set(iroNumber1 , forKey: "iro1")
+        
+        
+        
+        //////////////////画面遷移時に画像を渡すQiita
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+       
+        
+        // ②遷移先ViewControllerのインスタンス取得
+     
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "tukuruViewController") as! tukuruViewController
+
+                //satsueiのimage(画像データ)をtukuruViewControllerのimage(変数)に渡す
+        nextVC.image = imageViewtukuru1.image
+
+        nextVC.modalPresentationStyle = .fullScreen
+        present(nextVC, animated: true, completion: nil)
+        
+        //////////////////画面遷移時に画像を渡すQiitaここまで
+        
+        
+        
+        
         //画面遷移////////////////////////////
         
         let tukuruView = self.storyboard?.instantiateViewController(withIdentifier: "tukuruViewController") as! tukuruViewController
                 
-        //色の値（iroNumber)をtukuruViewControllerに渡す
-  //      tukuruView.gazou1 = iroNumber1
-  //      tukuruView.gazou2 = iroNumber2
-  //      tukuruView.gazou3 = iroNumber3
-        
-//        tukuruView.gazou = UserDefaults.standard.integer(forKey: "iro1")
-        
+       
         //フルスクリーン
         let vc = tukuruView
         vc.modalPresentationStyle = .fullScreen
@@ -1382,7 +1430,7 @@ class tukuru1ViewController: UIViewController {
         
             sender.isSelected = !sender.isSelected;
         
-//        self.present(tukuruView, animated: true, completion: nil)    //遷移の実行
+
      
         //画面遷移////////////////////////////
         
@@ -1395,8 +1443,31 @@ class tukuru1ViewController: UIViewController {
     }
     
     
+    @IBAction func satsuei(_ sender: Any) {
+        let cameraview = self.storyboard?.instantiateViewController(withIdentifier: "satsuei") as! satsuei
+        
+        //フルスクリーン
+        let vc = cameraview
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
+    
+    
     @IBAction func cameraTap(_ sender: Any) {
         
+        
+        let cameraview = self.storyboard?.instantiateViewController(withIdentifier: "cameraViewController") as! cameraViewController
+        
+        //フルスクリーン
+        let vc = cameraview
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func cameraTapsaisyonohou(_ sender: Any) {
         let cameraview = self.storyboard?.instantiateViewController(withIdentifier: "camera") as! camera
         
         //フルスクリーン
@@ -1409,7 +1480,6 @@ class tukuru1ViewController: UIViewController {
     
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -1418,6 +1488,7 @@ class tukuru1ViewController: UIViewController {
         //線の太さ(太さ)
         self.imageViewtukuru1.layer.borderWidth = 3
         
+        //画面遷移時のボタン
         self.blackButton.setImage(blackb, for: .normal)
         self.whiteButton.setImage(whiteb, for: .normal)
         self.redButton.setImage(redb, for: .normal)
@@ -1430,12 +1501,212 @@ class tukuru1ViewController: UIViewController {
         
         
         
+        
+        //cameraの画像
+        
+        //写真を撮影
+        
+        /*
+        @IBAction func cameraActivationButtonAction(_ sender: Any) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = .camera
+            imagePicker.delegate = self
+            present(imagePicker, animated: true)
+        }
+       */
+        
+       
+        //cameraの画像ここまで
+        
+        
+        
     }
     
     //画面遷移して戻ってきても呼び出す
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //写真撮影から戻ってきたときだけ１になる。写真以外の画面からきたときは０
+       modottekita = 0
+        
+        
+        
+        //plusminustagの代わり。撮影画面に行ったらタグがないので。
+        var satsueiNumber1: Int = 0
+        var satsueiNumber2: Int = 0
+        var satsueiNumber3: Int = 0
+        var satsueiNumber4: Int = 0
+        var satsueiNumber5: Int = 0
+        var satsueiNumber6: Int = 0
+        var satsueiNumber7: Int = 0
+        var satsueiNumber8: Int = 0
+        var satsueiNumber9: Int = 0
+        
+        var satsueiArray = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        
+        //tukuruViewControllerのプラスマイナスボタンのタグの番号をplusminustagに入れている。
+        switch plusminustag {
+        //1番の画像のプラスマイナスボタンが押されて遷移してきた時
+        case 1:
+         satsueiArray[0] = 1
+           
+                print(satsueiArray)
+           
+            
+            
+            //satsuei画面に行った時に、どのプラスマイナスタグを押されてきたのか記憶させておく
+            satsueiNumber1 = 1
+            userDefaults.set(satsueiNumber1 , forKey: "satsueiNumber1")
+            
+            print("satsueiNumber1は\(satsueiNumber1)")
+            print("satsueiNumber2は\(satsueiNumber2)")
+            
+            
+        //２番の画像のプラスマイナスボタンが押されて遷移してきた時
+        case 2:
+            satsueiArray[1] = 1
+              
+                   print(satsueiArray)
+            
+            //satsuei画面に行った時に、どのプラスマイナスタグを押されてきたのか記憶させておく
+            satsueiNumber2 = 1
+            userDefaults.set(satsueiNumber2 , forKey: "satsueiNumber2")
+            
+            print("satsueiNumber1は\(satsueiNumber1)")
+            print("satsueiNumber2は\(satsueiNumber2)")
+        
+            
+            //3番の画像のプラスマイナスボタンが押されて遷移してきた時
+            case 3:
+            satsueiArray[2] = 1
+              
+                   print(satsueiArray)
+            
+            //satsuei画面に行った時に、どのプラスマイナスタグを押されてきたのか記憶させておく
+            satsueiNumber3 = 1
+            userDefaults.set(satsueiNumber3 , forKey: "satsueiNumber3")
+            
+            print("satsueiNumber1は\(satsueiNumber1)")
+            print("satsueiNumber3は\(satsueiNumber3)")
+            
+             //4番の画像のプラスマイナスボタンが押されて遷移してきた時
+            case 4:
+            satsueiArray[3] = 1
+              
+                   print(satsueiArray)
+            
+            //satsuei画面に行った時に、どのプラスマイナスタグを押されてきたのか記憶させておく
+            satsueiNumber4 = 1
+            userDefaults.set(satsueiNumber4 , forKey: "satsueiNumber4")
+            
+            print("satsueiNumber1は\(satsueiNumber1)")
+            print("satsueiNumber4は\(satsueiNumber4)")
+            
+            
+             //5番の画像のプラスマイナスボタンが押されて遷移してきた時
+            case 5:
+            satsueiArray[4] = 1
+              
+                   print(satsueiArray)
+            
+            //satsuei画面に行った時に、どのプラスマイナスタグを押されてきたのか記憶させておく
+            satsueiNumber5 = 1
+            userDefaults.set(satsueiNumber5 , forKey: "satsueiNumber5")
+            
+            print("satsueiNumber1は\(satsueiNumber1)")
+            print("satsueiNumber5は\(satsueiNumber5)")
+            
+            
+            //6番の画像のプラスマイナスボタンが押されて遷移してきた時
+           case 6:
+            satsueiArray[5] = 1
+              
+                   print(satsueiArray)
+            //satsuei画面に行った時に、どのプラスマイナスタグを押されてきたのか記憶させておく
+            satsueiNumber6 = 1
+            userDefaults.set(satsueiNumber6 , forKey: "satsueiNumber6")
+            
+            print("satsueiNumber1は\(satsueiNumber1)")
+            print("satsueiNumber6は\(satsueiNumber6)")
+            
+            
+            //7番の画像のプラスマイナスボタンが押されて遷移してきた時
+           case 7:
+            satsueiArray[6] = 1
+              
+                   print(satsueiArray)
+            //satsuei画面に行った時に、どのプラスマイナスタグを押されてきたのか記憶させておく
+            satsueiNumber7 = 1
+            userDefaults.set(satsueiNumber7 , forKey: "satsueiNumber7")
+            
+            print("satsueiNumber1は\(satsueiNumber1)")
+            print("satsueiNumber7は\(satsueiNumber7)")
+            
+            
+            
+            //8番の画像のプラスマイナスボタンが押されて遷移してきた時
+           case 8:
+            satsueiArray[7] = 1
+              
+                   print(satsueiArray)
+            
+            //satsuei画面に行った時に、どのプラスマイナスタグを押されてきたのか記憶させておく
+            satsueiNumber8 = 1
+            userDefaults.set(satsueiNumber8 , forKey: "satsueiNumber8")
+            
+            print("satsueiNumber1は\(satsueiNumber1)")
+            print("satsueiNumber8は\(satsueiNumber8)")
+            
+            //9番の画像のプラスマイナスボタンが押されて遷移してきた時
+           case 9:
+            satsueiArray[8] = 1
+              
+                   print(satsueiArray)
+            
+            //satsuei画面に行った時に、どのプラスマイナスタグを押されてきたのか記憶させておく
+            satsueiNumber9 = 1
+            userDefaults.set(satsueiNumber9 , forKey: "satsueiNumber9")
+            
+            print("satsueiNumber1は\(satsueiNumber1)")
+            print("satsueiNumber2は\(satsueiNumber2)")
+            print("satsueiNumber3は\(satsueiNumber3)")
+            print("satsueiNumber4は\(satsueiNumber4)")
+            print("satsueiNumber5は\(satsueiNumber5)")
+            print("satsueiNumber6は\(satsueiNumber6)")
+            print("satsueiNumber7は\(satsueiNumber7)")
+            print("satsueiNumber8は\(satsueiNumber8)")
+            print("satsueiNumber9は\(satsueiNumber9)")
+            
+            
+            
+        ////それ以外の画面から遷移してきた時
+        default:
+            modottekita = 1
+            //他の画面からきたとき、前の記憶を保つ
+            let userDefaultsSatsueiArray = userDefaults.array(forKey: "satsueiArray")
+            print("戻ってきた時の撮影配列\(userDefaultsSatsueiArray)")
+            
+        }
+        
+        //写真撮影から戻ってきた時にも配列をセットしてしまうと配列全部０になる。
+        if modottekita == 0{
+       userDefaults.set(satsueiArray , forKey: "satsueiArray")
+        }
+        
+        print("willdidが終わった時の記憶\(userDefaults.array(forKey: "satsueiArray"))")
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       
         print("plusminusのたぐ\(plusminustag)")
    
      //新規作成の画面は常に画像なし
@@ -1454,10 +1725,22 @@ class tukuru1ViewController: UIViewController {
         //線の太さ(太さ)
         self.imageViewtukuru1.layer.borderWidth = 2
         
+        
+        //遷移元から取得したimage(画像データ)をimageView2のimageに渡す
+        imageViewtukuru1.image = image
+        
+        if image == nil{
+            syashin = 0
+            print("写真なし")
+            
+        }
+        else {
+            syashin = 1
+            print("写真撮った")
+        }
      
     }
     
- 
    
     
     

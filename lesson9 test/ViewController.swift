@@ -7,7 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+//////////////test player あとで消す
+import AVFoundation
+//////////////test player あとで消すここまで
+
+class ViewController: UIViewController, AVAudioPlayerDelegate {
     
     //forkey
     let userDefaults:UserDefaults = UserDefaults.standard
@@ -25,6 +29,48 @@ class ViewController: UIViewController {
     
     var checkButtonArray = [Int]()
    
+    
+    //////////////test player あとで消す
+    var audioPlayer: AVAudioPlayer!
+    
+    
+    //レコーダーアプリの作り方から
+   
+    private func getURL() -> URL{
+    //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let url = docsDirect.appendingPathComponent("sample2.m4a")
+        return url
+        
+        
+    }
+    
+    //レコーダーアプリの作り方から
+    
+    @IBOutlet weak var player: UIButton!
+    @IBAction func play(_ sender: Any) {
+        
+        
+           
+            //recorder app
+            
+            audioPlayer = try! AVAudioPlayer(contentsOf: getURL())
+            audioPlayer.delegate = self
+            audioPlayer.play()
+            
+            //recorder app
+            
+        
+    }
+    
+    
+    
+    
+    
+    //////////////test player あとで消すここまで
     
     /*   10へ           */
     var test:Int = 0

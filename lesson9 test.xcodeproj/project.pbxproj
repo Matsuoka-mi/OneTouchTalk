@@ -14,6 +14,8 @@
 		BD23D34727659A530044E663 /* View8.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD23D34627659A530044E663 /* View8.swift */; };
 		BD23D34927659A5C0044E663 /* View9.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD23D34827659A5C0044E663 /* View9.swift */; };
 		BD23D34B2765A92C0044E663 /* View4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD23D34A2765A92C0044E663 /* View4.swift */; };
+		BD275D232786CB6400D75D96 /* cameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD275D222786CB6400D75D96 /* cameraViewController.swift */; };
+		BD275D252786DA5D00D75D96 /* satsuei.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD275D242786DA5D00D75D96 /* satsuei.swift */; };
 		BD334594275B78B700C69F59 /* LastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD334593275B78B700C69F59 /* LastViewController.swift */; };
 		BD378FFD275774090044EDB5 /* View1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD378FFC275774090044EDB5 /* View1.swift */; };
 		BD378FFF275777560044EDB5 /* View2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD378FFE275777560044EDB5 /* View2.swift */; };
@@ -46,6 +48,8 @@
 		BD23D34627659A530044E663 /* View8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View8.swift; sourceTree = "<group>"; };
 		BD23D34827659A5C0044E663 /* View9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View9.swift; sourceTree = "<group>"; };
 		BD23D34A2765A92C0044E663 /* View4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View4.swift; sourceTree = "<group>"; };
+		BD275D222786CB6400D75D96 /* cameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cameraViewController.swift; sourceTree = "<group>"; };
+		BD275D242786DA5D00D75D96 /* satsuei.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = satsuei.swift; sourceTree = "<group>"; };
 		BD334593275B78B700C69F59 /* LastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastViewController.swift; sourceTree = "<group>"; };
 		BD378FFC275774090044EDB5 /* View1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View1.swift; sourceTree = "<group>"; };
 		BD378FFE275777560044EDB5 /* View2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View2.swift; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				BD08B3ED274FA6F80054756F /* tukuru1ViewController.swift */,
 				BD7356612785454F0045709F /* onsei.swift */,
 				BD73566327856D420045709F /* camera.swift */,
+				BD275D222786CB6400D75D96 /* cameraViewController.swift */,
+				BD275D242786DA5D00D75D96 /* satsuei.swift */,
 				BDB6A190274C975A00E8EFC3 /* Main.storyboard */,
 				BDB6A193274C975A00E8EFC3 /* Assets.xcassets */,
 				BDB6A195274C975A00E8EFC3 /* LaunchScreen.storyboard */,
@@ -207,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD23D34127659A350044E663 /* View5.swift in Sources */,
+				BD275D232786CB6400D75D96 /* cameraViewController.swift in Sources */,
 				BD23D34527659A4A0044E663 /* View7.swift in Sources */,
 				BDB6A1A3274CA35D00E8EFC3 /* redViewController.swift in Sources */,
 				BDB6A1A5274CAB3D00E8EFC3 /* blueViewController.swift in Sources */,
@@ -223,6 +230,7 @@
 				BDB6A18B274C975A00E8EFC3 /* AppDelegate.swift in Sources */,
 				BD7356622785454F0045709F /* onsei.swift in Sources */,
 				BD23D34927659A5C0044E663 /* View9.swift in Sources */,
+				BD275D252786DA5D00D75D96 /* satsuei.swift in Sources */,
 				BD7EA38D275396A2009442F0 /* kido.swift in Sources */,
 				BD378FFF275777560044EDB5 /* View2.swift in Sources */,
 				BD23D34B2765A92C0044E663 /* View4.swift in Sources */,

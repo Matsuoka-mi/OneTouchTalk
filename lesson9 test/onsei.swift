@@ -25,6 +25,9 @@ class onsei: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     //レコーダーアプリのサイト
     
+    //どの録音ボタンからきたか、番号がrokuonNumberに記憶されているのをrokuontapという名前に代入
+    let rokuontap = UserDefaults.standard.integer(forKey: "rokuonNumber")
+    
     
     @IBOutlet weak var reco: UIButton!
     @IBOutlet weak var BaseView: UIView!
@@ -35,6 +38,9 @@ class onsei: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //どの録音ボタンからきたか
+        print("rokuontapは\(rokuontap)")
     }
     
     
@@ -57,21 +63,108 @@ class onsei: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     //レコーダーアプリの作り方から
    
-    private func getURL() -> URL{
+    private func getURL1() -> URL{
     //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         
         
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let docsDirect = paths[0]
-        let url = docsDirect.appendingPathComponent("sample.m4a")
+        let url = docsDirect.appendingPathComponent("sample1.m4a")
         return url
         
-        
     }
+        
+        private func getURL2() -> URL{
+        //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            
+            
+            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            let docsDirect = paths[0]
+            let url = docsDirect.appendingPathComponent("sample2.m4a")
+            return url
+        
+        
+        }
+        
+            private func getURL3() -> URL{
+            //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+                
+                
+                let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+                let docsDirect = paths[0]
+                let url = docsDirect.appendingPathComponent("sample3.m4a")
+                return url
+    }
+    
+    
+    private func getURL4() -> URL{
+    //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let url = docsDirect.appendingPathComponent("sample4.m4a")
+        return url
+}
+    
+    
+    private func getURL5() -> URL{
+    //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let url = docsDirect.appendingPathComponent("sample5.m4a")
+        return url
+}
+    
+    
+    private func getURL6() -> URL{
+    //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let url = docsDirect.appendingPathComponent("sample6.m4a")
+        return url
+}
+    
+    private func getURL7() -> URL{
+    //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let url = docsDirect.appendingPathComponent("sample7.m4a")
+        return url
+}
+    
+    private func getURL8() -> URL{
+    //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let url = docsDirect.appendingPathComponent("sample8.m4a")
+        return url
+}
+    
+    private func getURL9() -> URL{
+    //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let url = docsDirect.appendingPathComponent("sample9.m4a")
+        return url
+}
+    
+    
     
     //レコーダーアプリの作り方から
     
     
+    //録音ボタンを押したとき
     
     @IBAction func recordButton(_ sender: Any) {
     
@@ -112,33 +205,121 @@ class onsei: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
                        AVNumberOfChannelsKey: 2,
                        AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
                    ]
-                self.audioRecorder = try! AVAudioRecorder(url: self.getURL(), settings: settings)
-                self.audioRecorder.delegate = self
-                self.audioRecorder.record()
-                reco.setTitle("", for: .normal)
-                play.isEnabled = false
+         //       self.audioRecorder = try! AVAudioRecorder(url: self.getURL1(), settings: settings)
+        //        self.audioRecorder.delegate = self
+        //        self.audioRecorder.record()
+        //        reco.setTitle("", for: .normal)
+        //        play.isEnabled = false
+                
+                
                 //recorder app
+                
+                
+                
+                
+                //押したボタンごとに保存するURLを変える
+                
+                
+                
+                    switch rokuontap {
+                    case 1:
+                    
+                        self.audioRecorder = try! AVAudioRecorder(url: self.getURL1(), settings: settings)
+                        self.audioRecorder.delegate = self
+                        self.audioRecorder.record()
+                        reco.setTitle("", for: .normal)
+                        play.isEnabled = false
+                        
+                    
+                    
+                    case 2:
+                        self.audioRecorder = try! AVAudioRecorder(url: self.getURL2(), settings: settings)
+                        self.audioRecorder.delegate = self
+                        self.audioRecorder.record()
+                        reco.setTitle("", for: .normal)
+                        play.isEnabled = false
+                        
+                        
+                   case 3:
+                        self.audioRecorder = try! AVAudioRecorder(url: self.getURL3(), settings: settings)
+                        self.audioRecorder.delegate = self
+                        self.audioRecorder.record()
+                        reco.setTitle("", for: .normal)
+                        play.isEnabled = false
+                        
+                        
+                    case 4:
+                        self.audioRecorder = try! AVAudioRecorder(url: self.getURL4(), settings: settings)
+                        self.audioRecorder.delegate = self
+                        self.audioRecorder.record()
+                        reco.setTitle("", for: .normal)
+                        play.isEnabled = false
+                        
+                    case 5:
+                        self.audioRecorder = try! AVAudioRecorder(url: self.getURL5(), settings: settings)
+                        self.audioRecorder.delegate = self
+                        self.audioRecorder.record()
+                        reco.setTitle("", for: .normal)
+                        play.isEnabled = false
+                    case 6:
+                        self.audioRecorder = try! AVAudioRecorder(url: self.getURL6(), settings: settings)
+                        self.audioRecorder.delegate = self
+                        self.audioRecorder.record()
+                        reco.setTitle("", for: .normal)
+                        play.isEnabled = false
+                        
+                    case 7:
+                        self.audioRecorder = try! AVAudioRecorder(url: self.getURL7(), settings: settings)
+                        self.audioRecorder.delegate = self
+                        self.audioRecorder.record()
+                        reco.setTitle("", for: .normal)
+                        play.isEnabled = false
+                    case 8:
+                        self.audioRecorder = try! AVAudioRecorder(url: self.getURL8(), settings: settings)
+                        self.audioRecorder.delegate = self
+                        self.audioRecorder.record()
+                        reco.setTitle("", for: .normal)
+                        play.isEnabled = false
+           
+                        
+                    default:
+                        self.audioRecorder = try! AVAudioRecorder(url: self.getURL9(), settings: settings)
+                        self.audioRecorder.delegate = self
+                        self.audioRecorder.record()
+                        reco.setTitle("", for: .normal)
+                        play.isEnabled = false
+                  
+                
+                //押したボタンごとに保存するURLを変えるここまで
+                
                 
                 
           //      self.reco.frame = CGRect(x:75+10,y:75+10,width:30,height:30)
           //      self.reco.layer.cornerRadius = 3.0
-                
+                    }
             }
         }
         isRecording = !isRecording
+        
     }
     
     @IBAction func playButton(_ sender: Any) {
        
         //recorder app
         
-        audioPlayer = try! AVAudioPlayer(contentsOf: getURL())
+        audioPlayer = try! AVAudioPlayer(contentsOf: getURL1())
         audioPlayer.delegate = self
         audioPlayer.play()
         
         //recorder app
         
     }
+    
+    @IBAction func modoru(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     
     
     

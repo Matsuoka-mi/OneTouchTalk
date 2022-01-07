@@ -6,8 +6,13 @@
 //
 
 import UIKit
+/////////////player
+import AVFoundation
+//////////////player 
 
-class View2: UIViewController, UIGestureRecognizerDelegate {
+
+
+class View2: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegate {
     
     //forkey
     let userDefaults:UserDefaults = UserDefaults.standard
@@ -241,19 +246,41 @@ class View2: UIViewController, UIGestureRecognizerDelegate {
                 
                 
                 
-                
-                
-                
-                
-                
-                
             }
         }
     
     }
     
+    //////////////player
+    //レコーダーアプリの作り方から
+   
+    private func getURL2() -> URL{
+    //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let url = docsDirect.appendingPathComponent("sample2.m4a")
+        return url
+        
+        
+    }
+    
+    var audioPlayer: AVAudioPlayer!
+    //レコーダーアプリの作り方から
+    //////////////player
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //recorder app
+        
+        audioPlayer = try! AVAudioPlayer(contentsOf: getURL2())
+        audioPlayer.delegate = self
+        audioPlayer.play()
+        
+        //recorder app
+        
         
         let uiswitchONOFF = UserDefaults.standard.bool(forKey: "uiswitchkey")
         

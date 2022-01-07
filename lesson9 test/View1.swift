@@ -7,7 +7,11 @@
 
 import UIKit
 
-class View1: UIViewController, UIGestureRecognizerDelegate {
+/////////////player
+import AVFoundation
+//////////////player 次253行目
+
+class View1: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegate {
     
     //forkey
     let userDefaults:UserDefaults = UserDefaults.standard
@@ -246,10 +250,47 @@ class View1: UIViewController, UIGestureRecognizerDelegate {
     }
     
  
+    //////////////player
+    //レコーダーアプリの作り方から
+   
+    private func getURL1() -> URL{
+    //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let url = docsDirect.appendingPathComponent("sample1.m4a")
+        return url
+        
+        
+    }
+    
+    var audioPlayer: AVAudioPlayer!
+    //レコーダーアプリの作り方から
+    //////////////player　次はDidLoadの中
+   
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+   
+        
+        
+        
+        //recorder app
+        
+        audioPlayer = try! AVAudioPlayer(contentsOf: getURL1())
+        audioPlayer.delegate = self
+        audioPlayer.play()
+        
+        //recorder app
+        
+        
+        
+        
+        
+        
         
         
         
@@ -357,8 +398,9 @@ class View1: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         
+        
         //インストール直後に「はじめに」を押した時、配列内はnilなのでエラーが出るための処理。
-        //一度、「じゅんび」画面に入って何も触らず再度「はじめに」を押した時も同様の処理をするためにviewWillDisappearに入れている
+        //一度、「せってい」画面に入って何も触らず再度「はじめに」を押した時も同様の処理をするためにviewWillDisappearに入れている
         let data = UserDefaults.standard.object(forKey: "checkButtonArray")
         if data != nil {
             checkButtonArray = data as! [Int]

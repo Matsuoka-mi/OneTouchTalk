@@ -6,8 +6,11 @@
 //
 
 import UIKit
+/////////////player
+import AVFoundation
+//////////////player 
 
-class View8: UIViewController, UIGestureRecognizerDelegate {
+class View8: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegate {
 
     @IBOutlet weak var image8View: UIImageView!
     
@@ -101,8 +104,35 @@ class View8: UIViewController, UIGestureRecognizerDelegate {
     
     }
     
+    //////////////player
+    //レコーダーアプリの作り方から
+   
+    private func getURL8() -> URL{
+    //    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let url = docsDirect.appendingPathComponent("sample8.m4a")
+        return url
+        
+        
+    }
+    
+    var audioPlayer: AVAudioPlayer!
+    //レコーダーアプリの作り方から
+    //////////////player
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //recorder app
+        
+        audioPlayer = try! AVAudioPlayer(contentsOf: getURL8())
+        audioPlayer.delegate = self
+        audioPlayer.play()
+        
+        //recorder app
+        
         
         
         if UserDefaults.standard.integer(forKey: "LED8") == 1

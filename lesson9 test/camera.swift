@@ -2,6 +2,9 @@ import UIKit
 import AVFoundation
 class camera: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
 
     var captureSession = AVCaptureSession()
 
@@ -97,6 +100,9 @@ class camera: UIViewController, UIImagePickerControllerDelegate & UINavigationCo
         //撮影された画像をdelegateメソッドで処理
         self.photoOutput?.capturePhoto(with: settings, delegate: self as AVCapturePhotoCaptureDelegate)
     }
+    
+    
+    
 
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

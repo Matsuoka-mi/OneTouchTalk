@@ -546,8 +546,8 @@ class tukuruViewController: UIViewController {
     //なぜかDidWillDisappearでは表示されないので。
     override func viewDidAppear(_ animated: Bool) {
         
-        let userDefaultsSatsueiArray = userDefaults.array(forKey: "satsueiArray")
-        print("tukuru画面の時の撮影配列\(userDefaultsSatsueiArray)")
+//        let userDefaultsSatsueiArray = userDefaults.array(forKey: "satsueiArray")
+//        print("tukuru画面の時の撮影配列\(userDefaultsSatsueiArray)")
         
         //この中に１があるかどうかチェックし、あった場合はそれが何番目かを取り出せばどの番号の枠に画像を遷移したら良いか分かる
         

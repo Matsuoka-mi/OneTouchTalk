@@ -20,6 +20,12 @@ class View4: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegat
     //forkey
     let userDefaults:UserDefaults = UserDefaults.standard
 
+    
+    //録音したかどうか
+    let rokuA4 = UserDefaults.standard.integer(forKey: "rokuA4")
+    
+    
+    
     var checkButtonArray = [Int]()
 
   
@@ -41,20 +47,19 @@ class View4: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegat
     
     //imageViewの上にTapGestureRecognizerを追加。storyboardの一番右の黄色いまるからコントロールを押しながら移動したい画面へドラッグ。できた矢印をクリックした状態で右カラムのIdentifierに好きな名前をつける。
     //TapGestureRecognizerのアイコンとソースコードをコントロールを押しながら接続し「Action」で名前をつけて下記のように記入すると、画像をタップで画面遷移できる。
-    
+
+ 
     
     @IBAction func modoruButton1(_ sender: Any) {
         if modorutap == true {
             modoruButton1 = true
-            print("1が押された後のmodoruButton1\(modoruButton1)")
-            print("1が押された後のmodoruButton2\(modoruButton2)")
+            
         }
     }
     @IBAction func modoruButton2(_ sender: Any) {
         if modoruButton1 == true{
             modoruButton2 = true
-            print(modoruButton1)
-            print(modoruButton2)
+           
             // ①storyboardのインスタンス取得
                     let storyboard: UIStoryboard = self.storyboard!
              
@@ -76,7 +81,7 @@ class View4: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegat
         modoruButton1 = false
         modoruButton2 = false
         
-       print("tap４押した")
+      
         
         
         //輝度//////////////////////////////////////////////輝度////////////////
@@ -203,6 +208,7 @@ class View4: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegat
     
     
     //////////////player
+    let rokuonshita = UserDefaults.standard.integer(forKey: "rokuonshitakadouka")
     //レコーダーアプリの作り方から
    
     private func getURL4() -> URL{
@@ -226,7 +232,11 @@ class View4: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegat
         super.viewDidLoad()
         
         //recorder app
-        
+        print("録音したかどうか\(rokuonshita)")
+        if rokuA4 == 0{
+        print("録音ありません")
+        }
+            else{
         audioPlayer = try! AVAudioPlayer(contentsOf: getURL4())
         audioPlayer.delegate = self
         audioPlayer.play()
@@ -240,7 +250,7 @@ class View4: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegat
         print("view7gazo\(view7gazo)")
         print("view8gazo\(view8gazo)")
         print("view9gazo\(view9gazo)")
-        
+    }
         
         if UserDefaults.standard.integer(forKey: "LED4") == 1
         {

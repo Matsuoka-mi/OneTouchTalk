@@ -17,6 +17,9 @@ class View5: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegat
     
     //forkey
     let userDefaults:UserDefaults = UserDefaults.standard
+    
+    //録音したかどうか
+    let rokuA5 = UserDefaults.standard.integer(forKey: "rokuA5")
 
     var checkButtonArray = [Int]()
 
@@ -194,13 +197,17 @@ class View5: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegat
         super.viewDidLoad()
         
         //recorder app
+        if rokuA5 == 0{
+        print("録音ありません")
+        }
+            else{
         
         audioPlayer = try! AVAudioPlayer(contentsOf: getURL5())
         audioPlayer.delegate = self
         audioPlayer.play()
         
         //recorder app
-        
+            }
         
         if UserDefaults.standard.integer(forKey: "LED5") == 1
         {

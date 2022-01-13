@@ -114,7 +114,18 @@ class zyunbanViewController: UIViewController {
     @IBOutlet weak var uiONTouch: UILabel!
     @IBOutlet weak var uiOFFpinch: UILabel!
     
-
+    @IBOutlet weak var rokuV1: UIButton!
+    @IBOutlet weak var rokuV2: UIButton!
+    @IBOutlet weak var rokuV3: UIButton!
+    @IBOutlet weak var rokuV4: UIButton!
+    @IBOutlet weak var rokuV5: UIButton!
+    @IBOutlet weak var rokuV6: UIButton!
+    @IBOutlet weak var rokuV7: UIButton!
+    @IBOutlet weak var rokuV8: UIButton!
+    @IBOutlet weak var rokuV9: UIButton!
+    
+    let rokuari = UIImage(named: "otoari")
+    let rokunashi = UIImage(named: "otonashi")
     
     //ページの途中で最初の画面にもどるとき、ピンチを使うかタップを使うかを決める
     @IBOutlet weak var uiSwitch: UISwitch!
@@ -672,6 +683,15 @@ class zyunbanViewController: UIViewController {
             uiONTouch.textColor = UIColor.gray
         }
         
+        
+        
+        
+       
+        
+        
+        
+        
+        
         userDefaults.set(checkButtonArray , forKey: "checkButtonArray")
         
         //  ボタンの画像サイズ変更
@@ -958,6 +978,112 @@ class zyunbanViewController: UIViewController {
         print("zyu読み込んだときのtagNumber３は\(tagNumber3)")
         
          
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        print("録音rokuA1は\(userDefaults.integer(forKey: "rokuA1"))")
+        if userDefaults.integer(forKey: "rokuA1") == 1
+        {
+            self.rokuV1.setImage(rokuari, for: .normal)
+        }
+        else
+        {
+            self.rokuV1.setImage(rokunashi, for: .normal)
+        }
+        
+        
+        if userDefaults.integer(forKey: "rokuA2") == 1
+        {
+            self.rokuV2.setImage(rokuari, for: .normal)
+        }
+        else
+        {
+            self.rokuV2.setImage(rokunashi, for: .normal)
+        }
+        
+        
+        if userDefaults.integer(forKey: "rokuA3") == 1
+        {
+            self.rokuV3.setImage(rokuari, for: .normal)
+        }
+        else
+        {
+            self.rokuV3.setImage(rokunashi, for: .normal)
+        }
+        
+        if userDefaults.integer(forKey: "rokuA4") == 1
+        {
+            self.rokuV4.setImage(rokuari, for: .normal)
+        }
+        else
+        {
+            self.rokuV4.setImage(rokunashi, for: .normal)
+        }
+        
+        if userDefaults.integer(forKey: "rokuA5") == 1
+        {
+            self.rokuV5.setImage(rokuari, for: .normal)
+        }
+        else
+        {
+            self.rokuV5.setImage(rokunashi, for: .normal)
+        }
+        
+        if userDefaults.integer(forKey: "rokuA6") == 1
+        {
+            self.rokuV6.setImage(rokuari, for: .normal)
+        }
+        else
+        {
+            self.rokuV6.setImage(rokunashi, for: .normal)
+        }
+        
+        if userDefaults.integer(forKey: "rokuA7") == 1
+        {
+            self.rokuV7.setImage(rokuari, for: .normal)
+        }
+        else
+        {
+            self.rokuV7.setImage(rokunashi, for: .normal)
+        }
+        
+        if userDefaults.integer(forKey: "rokuA8") == 1
+        {
+            self.rokuV8.setImage(rokuari, for: .normal)
+        }
+        else
+        {
+            self.rokuV8.setImage(rokunashi, for: .normal)
+        }
+        
+        if userDefaults.integer(forKey: "rokuA9") == 1
+        {
+            self.rokuV9.setImage(rokuari, for: .normal)
+        }
+        else
+        {
+            self.rokuV9.setImage(rokunashi, for: .normal)
+        }
+        
+        
+        
         
         //アプリを再起動してもiro1の色を表示する
         ////////////////////////////////////////////////////////////////////////////////////////////////////////

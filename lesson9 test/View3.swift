@@ -16,6 +16,9 @@ class View3: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegat
     
     //forkey
     let userDefaults:UserDefaults = UserDefaults.standard
+    
+    //録音したかどうか
+    let rokuA3 = UserDefaults.standard.integer(forKey: "rokuA3")
 
     var checkButtonArray = [Int]()
     
@@ -238,6 +241,10 @@ class View3: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegat
         super.viewDidLoad()
         
         //recorder app
+        if rokuA3 == 0{
+        print("録音ありません")
+        }
+            else{
         
         audioPlayer = try! AVAudioPlayer(contentsOf: getURL3())
         audioPlayer.delegate = self
@@ -253,7 +260,7 @@ class View3: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegat
         print("view7gazo\(view7gazo)")
         print("view8gazo\(view8gazo)")
         print("view9gazo\(view9gazo)")
-        
+            }
         
         if UserDefaults.standard.integer(forKey: "LED3") == 1{
           //輝度//////////////////////////////////////////////輝度////////////////

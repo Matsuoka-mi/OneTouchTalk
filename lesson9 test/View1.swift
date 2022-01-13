@@ -16,6 +16,9 @@ class View1: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegat
     //forkey
     let userDefaults:UserDefaults = UserDefaults.standard
     
+    //録音したかどうか
+    let rokuA1 = UserDefaults.standard.integer(forKey: "rokuA1")
+    
     var checkButtonArray = [Int]()
     
     var kido1: Int = 0
@@ -276,16 +279,18 @@ class View1: UIViewController, UIGestureRecognizerDelegate, AVAudioPlayerDelegat
         super.viewDidLoad()
    
         
-        
-        
         //recorder app
+        if rokuA1 == 0{
+        print("録音ありません")
+        }
+            else{
         
         audioPlayer = try! AVAudioPlayer(contentsOf: getURL1())
         audioPlayer.delegate = self
         audioPlayer.play()
         
         //recorder app
-        
+            }
         
         
         
